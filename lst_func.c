@@ -44,3 +44,32 @@ void	ft_lstadd_back_double(t_lst_ps **lst, t_lst_ps *new, t_deque *deque)
 		deque->last = new;
 	}
 }
+
+void	free_lst_ps(t_deque *deque)
+{
+	t_lst_ps *current;
+	t_lst_ps *next;
+
+	current = deque->head;
+	while(current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+}
+
+int	ft_contains_space(char *str)
+{	
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '\n' || str[i] == '\t' || str[i] == '\v' \
+			|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+			return (1);
+			i++;
+	}
+	return (0);
+}

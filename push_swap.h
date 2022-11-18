@@ -24,5 +24,13 @@ t_lst_ps	*ft_lstnew_double(int	content);
 t_lst_ps	*ft_lstlast_double(t_lst_ps *lst);
 t_lst_ps	*ft_lstnew_double(int	content);
 void	ft_lst_swap(t_lst_ps **lst, t_deque *deque);
+// void    take_str(int argc, char **argv, t_deque *deque);
+// void    take_args(int argc, char **argv, t_deque *deque);
+void	free_lst_ps(t_deque *deque);
+int		ft_contains_space(char *str);
+void    take_strarg(char *argv, t_deque *deque);
+void    take_mixed(int argc, char **argv, t_deque *deque);
+
+
 
 #endif
