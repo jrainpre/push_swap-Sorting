@@ -1,4 +1,4 @@
-SRCS	=	test.c lst_func.c
+SRCS	=	test.c lst_func.c swap.c
 RM        =    rm -f
 CC        =    cc
 CFLAGS    =     -g #-Wall -Wextra -Werror -g

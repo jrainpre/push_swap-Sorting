@@ -26,16 +26,21 @@ t_lst_ps	*ft_lstnew_double(int	content)
 	return (entry);
 }
 
-void	ft_lstadd_back_double(t_lst_ps **lst, t_lst_ps *new)
+void	ft_lstadd_back_double(t_lst_ps **lst, t_lst_ps *new, t_deque *deque)
 {
 	t_lst_ps	*prevlast;
 
-	if (*lst)
+	if (deque->head == NULL)
+			{
+		*lst = new;
+		deque->head = new;
+		deque->last = new;
+	}
+	else if (*lst)
 	{
 		prevlast = ft_lstlast_double(*lst);
 		prevlast->next = new;
 		new->prev = prevlast;
+		deque->last = new;
 	}
-	else
-		*lst = new;
 }

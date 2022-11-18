@@ -5,31 +5,30 @@
 
 
 
-
 int main (int argc, char **argv)
 {
 	if(argc < 3)
 		return (0);
-	t_list	*a;
-	t_list	*b;
 	int		i;
-	t_list	*temp;
-
-	a = ft_lstnew_double(atoi(argv[1]));
+	t_lst_ps	*temp;
+	t_deque deque;
+	deque.head = NULL;
+	deque.last = NULL;
+	deque.head = ft_lstnew_double(atoi(argv[1]));
 	i = 2;
 	while(i < argc)
 	{
 		temp = ft_lstnew_double(atoi(argv[i]));
-		ft_lstadd_back_double(&a, temp);
+		ft_lstadd_back_double(&deque.head, temp, &deque);
 		i++;
 	}
-	printf("%d", ft_lstsize(a));
-	while (a)
+	  ft_lst_swap(&deque.head, &deque);
+	temp = deque.head;
+	while (temp)
 	{
-		printf("%d", a->nb);
-		a = a->next;
+		printf("%d\n", temp->nb);
+		temp = temp->next;
 	}
-
 }
 
 
