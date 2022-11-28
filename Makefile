@@ -1,4 +1,4 @@
-SRCS	=	test.c lst_func.c swap.c take_args_str.c
+SRCS	=	test.c lst_func.c swap.c take_args_str.c rules.c
 RM        =    rm -f
 CC        =    gcc
 CFLAGS    =     -g #-Wall -Wextra -Werror -g
@@ -21,7 +21,7 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
-	./push_swap 34 "2 12 4 8 6 34" 101 96 "43" 9 97 " "
+	./push_swap "1 5 2 4 3"
 
 # val: all
 # 	valgrind --leak-check=full \

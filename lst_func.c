@@ -31,7 +31,7 @@ void	ft_lstadd_back_double(t_lst_ps **lst, t_lst_ps *new, t_deque *deque)
 	t_lst_ps	*prevlast;
 
 	if (deque->head == NULL)
-			{
+	{
 		*lst = new;
 		deque->head = new;
 		deque->last = new;
@@ -42,6 +42,21 @@ void	ft_lstadd_back_double(t_lst_ps **lst, t_lst_ps *new, t_deque *deque)
 		prevlast->next = new;
 		new->prev = prevlast;
 		deque->last = new;
+	}
+}
+
+void ft_add_lstentry_first(t_deque *deque, t_lst_ps *new)
+{
+	if (deque->head == NULL)
+	{
+		deque->head = new;
+		deque->last = new;
+	}
+	else
+	{
+		deque->head->prev = new;
+		new->next = deque->head;
+		deque->head = new;
 	}
 }
 

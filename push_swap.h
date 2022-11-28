@@ -24,13 +24,23 @@ t_lst_ps	*ft_lstnew_double(int	content);
 t_lst_ps	*ft_lstlast_double(t_lst_ps *lst);
 t_lst_ps	*ft_lstnew_double(int	content);
 void	ft_lst_swap(t_lst_ps **lst, t_deque *deque);
-// void    take_str(int argc, char **argv, t_deque *deque);
-// void    take_args(int argc, char **argv, t_deque *deque);
 void	free_lst_ps(t_deque *deque);
 int		ft_contains_space(char *str);
 void    take_strarg(char *argv, t_deque *deque);
 void    take_mixed(int argc, char **argv, t_deque *deque);
+void ft_add_lstentry_first(t_deque *deque, t_lst_ps *new);
 
+int	ft_sa(t_deque *deque_a, t_deque *deque_b);
+int ft_sb(t_deque *deque_a, t_deque *deque_b);
+int ft_ss(t_deque *deque_a, t_deque *deque_b);
+int ft_pa(t_deque *deque_a, t_deque *deque_b);
+int ft_pb(t_deque *deque_a, t_deque *deque_b);
+int ft_ra(t_deque *deque_a, t_deque *deque_b);
+int ft_rb(t_deque *deque_a, t_deque *deque_b);
+int ft_rr(t_deque *deque_a, t_deque *deque_b);
+int ft_rra(t_deque *deque_a, t_deque *deque_b);
+int ft_rrb(t_deque *deque_a, t_deque *deque_b);
+int ft_rrr(t_deque *deque_a, t_deque *deque_b);
 
 
 #endif

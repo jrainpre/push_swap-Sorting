@@ -3,46 +3,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
-// int main (int argc, char **argv)
-// {
-// 	if(argc < 3)
-// 		return (0);
-// 	int		i;
-// 	t_lst_ps	*temp;
-// 	t_deque deque;
-// 	deque.head = NULL;
-// 	deque.last = NULL;
-// 	deque.head = ft_lstnew_double(atoi(argv[1]));
-// 	i = 2;
-// 	while(i < argc)
-// 	{
-// 		temp = ft_lstnew_double(atoi(argv[i]));
-// 		ft_lstadd_back_double(&deque.head, temp, &deque);
-// 		i++;
-// 	}
-// 	  ft_lst_swap(&deque.head, &deque);
-// 	temp = deque.head;
-// 	while (temp)
-// 	{
-// 		printf("%d\n", temp->nb);
-// 		temp = temp->next;
-// 	}
-// }
-
 int main(int argc, char **argv)
 {
 	t_deque deque_a;
+	t_deque deque_b;
 	t_lst_ps *temp;
 	
 	deque_a.head = NULL;
 	deque_a.last = NULL;
-	// if(argc == 2)
-	// 	take_str(argc, argv, &deque_a);
-	// if (argc > 2)
-	// 	take_args(argc, argv, &deque_a);
-		take_mixed(argc, argv, &deque_a);
+	deque_b.head = NULL;
+	deque_b.last = NULL;
+	take_mixed(argc, argv, &deque_a);
+	// ft_sa(&deque_a, &deque_b);
+	ft_pb(&deque_a, &deque_b);
+	ft_pb(&deque_a, &deque_b);
+	ft_sa(&deque_a, &deque_b);
+	ft_ra(&deque_a, &deque_b);
+	ft_pa(&deque_a, &deque_b);
+	ft_ra(&deque_a, &deque_b);
+	ft_pa(&deque_a, &deque_b);
 	temp = deque_a.head;
 	while (temp)
 	{
@@ -50,6 +29,15 @@ int main(int argc, char **argv)
 		temp = temp->next;
 	}
 	free_lst_ps(&deque_a);
+	printf("%s\n", "stack b");
+	temp = deque_b.head;
+	while (temp)
+	{
+		printf("%d\n", temp->nb);
+		temp = temp->next;
+	}
+	free_lst_ps(&deque_b);
 }
 
 
+void ft_sort_three()
