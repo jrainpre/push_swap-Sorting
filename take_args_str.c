@@ -81,7 +81,8 @@ void    take_mixed(int argc, char **argv, t_deque *deque)
             {
                 if (!deque->head)
                     deque->head = ft_lstnew_double(atoi(argv[i]));
-                temp = ft_lstnew_double(atoi(argv[i]));
+                    else
+                  temp = ft_lstnew_double(atoi(argv[i]));
 		        ft_lstadd_back_double(&deque->head, temp, deque);
 
             }

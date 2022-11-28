@@ -21,7 +21,7 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
-	./push_swap "2 12 4 8 6 34" 101 96 "43" 9 97 " "
+	./push_swap 34 "2 12 4 8 6 34" 101 96 "43" 9 97 " "
 
 # val: all
 # 	valgrind --leak-check=full \
