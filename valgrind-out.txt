@@ -1,0 +1,104 @@
+==48800== Memcheck, a memory error detector
+==48800== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==48800== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
+==48800== Command: ./push_swap 18 667 650 714 988 392 301 639 855 247 715 30 229 56 987 556 766 413 854 544 262 105 376 8 377 225 885 764 345 954 387 948 6 487 11 73 368 420 69 433 144 701 31 432 609 356 340 740 826 791 173 78 608 566 77 830 409 539 615 727 378 573 619 164 364 985 822 780 309 285 653 330 565 169 365 762 778 63 581 357 519 828 400 861 57 123 339 337 486 761 86 290 516 481 813 426 815 7 322 215 196 773 181 465 131 588 892 689 226 990 803 167 237 278 817 994 672 866 424 523 270 531 831 419 579 606 546 604 316 637 488 162 159 295 798 936 796 669 401 311 35 161 960 625 496 245 436 520 313 456 697 941 824 550 263 951 34 256 754 629 827 22 877 736 332 587 266 41 843 882 106 3 883 224 995 833 71 390 165 922 138 656 691 431 679 428 542 182 710 281 570 728 450 259 25 850 47 452 522 353 635 846 734 917 216 126 4 203 621 342 336 16 193 234 228 437 204 111 717 585 498 154 699 610 547 302 920 518 834 842 134 315 192 676 133 209 859 743 858 395 612 17 873 906 202 781 130 350 362 213 214 293 823 768 694 848 716 871 695 383 786 45 46 235 540 862 294 557 385 434 64 55 958 191 759 632 258 170 1 335 742 238 477 158 512 188 879 1000 722 787 466 640 725 142 283 2 777 119 511 327
+==48800== Parent PID: 48799
+==48800== 
+--48800-- 
+--48800-- Valgrind options:
+--48800--    --leak-check=full
+--48800--    --show-leak-kinds=all
+--48800--    --track-origins=yes
+--48800--    --verbose
+--48800--    --log-file=valgrind-out.txt
+--48800-- Contents of /proc/version:
+--48800--   Linux version 5.4.0-132-generic (buildd@lcy02-amd64-059) (gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1)) #148-Ubuntu SMP Mon Oct 17 16:02:06 UTC 2022
+--48800-- 
+--48800-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
+--48800-- Page sizes: currently 4096, max supported 4096
+--48800-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
+--48800-- Reading syms from /nfs/homes/jrainpre/Desktop/42/Curriculum/push_swap/push_swap
+--48800-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
+--48800--   Considering /usr/lib/debug/.build-id/45/87364908de169dec62ffa538170118c1c3a078.debug ..
+--48800--   .. build-id is valid
+--48800-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
+--48800--    object doesn't have a symbol table
+--48800--    object doesn't have a dynamic symbol table
+--48800-- Scheduler: using generic scheduler lock implementation.
+--48800-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
+==48800== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-48800-by-jrainpre-on-???
+==48800== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-48800-by-jrainpre-on-???
+==48800== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-48800-by-jrainpre-on-???
+==48800== 
+==48800== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==48800== don't want to do, unless you know exactly what you're doing,
+==48800== or are frdoing some strange experiment):
+==48800==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=48800 ...command...
+==48800== 
+==48800== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==48800==   /path/to/gdb ./push_swap
+==48800== and then give GDB the following command
+==48800==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=48800
+==48800== --pid is optional if only one valgrind process is running
+==48800== 
+--48800-- REDIR: 0x4022e20 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (???)
+--48800-- REDIR: 0x4022bf0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (???)
+--48800-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
+--48800--    object doesn't have a symbol table
+--48800-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
+--48800--    object doesn't have a symbol table
+==48800== WARNING: new redirection conflicts with existing -- ignoring it
+--48800--     old: 0x04022e20 (strlen              ) R-> (0000.0) 0x580c9ce2 ???
+--48800--     new: 0x04022e20 (strlen              ) R-> (2007.0) 0x0483f060 strlen
+--48800-- REDIR: 0x401f600 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ffd0 (strcmp)
+--48800-- REDIR: 0x4023380 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4843a20 (mempcpy)
+--48800-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
+--48800--   Considering /usr/lib/debug/.build-id/18/78e6b475720c7c51969e69ab2d276fae6d1dee.debug ..
+--48800--   .. build-id is valid
+--48800-- REDIR: 0x4902480 (libc.so.6:memmove) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4901780 (libc.so.6:strncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x49027b0 (libc.so.6:strcasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x49010a0 (libc.so.6:strcat) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x49017e0 (libc.so.6:rindex) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4903c50 (libc.so.6:rawmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x491ece0 (libc.so.6:wmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x491e820 (libc.so.6:wcscmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x49025e0 (libc.so.6:mempcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4902410 (libc.so.6:bcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4901710 (libc.so.6:strncmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4901150 (libc.so.6:strcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4902540 (libc.so.6:memset) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x491e7e0 (libc.so.6:wcschr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4901670 (libc.so.6:strnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4901230 (libc.so.6:strcspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4902800 (libc.so.6:strncasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x49011d0 (libc.so.6:strcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4902950 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x491ff50 (libc.so.6:wcsnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x491e860 (libc.so.6:wcscpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4901820 (libc.so.6:strpbrk) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4901100 (libc.so.6:index) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4901630 (libc.so.6:strlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x490abb0 (libc.so.6:memrchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4902850 (libc.so.6:strcasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x49023d0 (libc.so.6:memchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x491e930 (libc.so.6:wcslen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4901ae0 (libc.so.6:strspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4902750 (libc.so.6:stpncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x49026f0 (libc.so.6:stpcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x4903c90 (libc.so.6:strchrnul) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x49028a0 (libc.so.6:strncasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--48800-- REDIR: 0x49ea500 (libc.so.6:__strrchr_avx2) redirected to 0x483ea10 (rindex)
+--48800-- REDIR: 0x48fc0e0 (libc.so.6:malloc) redirected to 0x483b780 (malloc)
+--48800-- REDIR: 0x48fc6d0 (libc.so.6:free) redirected to 0x483c9d0 (free)
+--48800-- REDIR: 0x49ea6d0 (libc.so.6:__strlen_avx2) redirected to 0x483ef40 (strlen)
+--48800-- REDIR: 0x49ea310 (libc.so.6:__strchrnul_avx2) redirected to 0x4843540 (strchrnul)
+--48800-- REDIR: 0x49ed6c0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4843660 (mempcpy)
+==48800== 
+==48800== HEAP SUMMARY:
+==48800==     in use at exit: 0 bytes in 0 blocks
+==48800==   total heap usage: 601 allocs, 601 frees, 15,424 bytes allocated
+==48800== 
+==48800== All heap blocks were freed -- no leaks are possible
+==48800== 
+==48800== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

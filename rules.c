@@ -1,167 +1,183 @@
 
 #include "push_swap.h"
 
-int	ft_sa(t_deque *deque_a, t_deque *deque_b)
+void	ft_sa(t_stack *stack_a, t_stack *stack_b, int print)
 {
 	t_lst_ps *temp;
-	deque_a->last = ft_lstlast_double(deque_a->head);
-	if (!(deque_a->head && deque_a->head->next))
-		return (0);
-	temp = deque_a->head;
-	deque_a->head = temp->next;
-	deque_a->head->prev = NULL;
-	temp->next = deque_a->head->next;
-	deque_a->head->next = temp;
-	temp->prev = deque_a->head;
-	deque_a->last = ft_lstlast_double(deque_a->head);
-	if (deque_a->head->next != deque_a->last)
-		deque_a->head->next->next->prev = deque_a->head->next;
-	return (1);
+	stack_a->last = ft_lstlast_double(stack_a->head);
+	if (!(stack_a->head && stack_a->head->next))
+		return ;
+	temp = stack_a->head;
+	stack_a->head = temp->next;
+	stack_a->head->prev = NULL;
+	temp->next = stack_a->head->next;
+	stack_a->head->next = temp;
+	temp->prev = stack_a->head;
+	stack_a->last = ft_lstlast_double(stack_a->head);
+	if (stack_a->head->next != stack_a->last)
+		stack_a->head->next->next->prev = stack_a->head->next;
+		if (print)
+			ft_printf("sa\n");
+	return ;
 }
 
-int ft_sb(t_deque *deque_a, t_deque *deque_b)
+void	ft_sb(t_stack *stack_a, t_stack *stack_b, int print)
 {
 	t_lst_ps *temp;
-	deque_b->last = ft_lstlast_double(deque_b->head);
-	if (!(deque_b->head && deque_b->head->next))
-		return (0);
-	temp = deque_b->head;
-	deque_b->head = temp->next;
-	deque_b->head->prev = NULL;
-	temp->next = deque_b->head->next;
-	deque_b->head->next = temp;
-	temp->prev = deque_b->head;
-	deque_b->last = ft_lstlast_double(deque_b->head);
-	if (deque_b->head->next != deque_b->last)
-		deque_b->head->next->next->prev = deque_b->head->next;
-	return (1);
+	stack_b->last = ft_lstlast_double(stack_b->head);
+	if (!(stack_b->head && stack_b->head->next))
+		return ;
+	temp = stack_b->head;
+	stack_b->head = temp->next;
+	stack_b->head->prev = NULL;
+	temp->next = stack_b->head->next;
+	stack_b->head->next = temp;
+	temp->prev = stack_b->head;
+	stack_b->last = ft_lstlast_double(stack_b->head);
+	if (stack_b->head->next != stack_b->last)
+		stack_b->head->next->next->prev = stack_b->head->next;
+		if (print)
+			ft_printf("sb\n");
+	return ;
 }
 
-int ft_ss(t_deque *deque_a, t_deque *deque_b)
+void ft_ss(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_sa(deque_a, deque_b);
-	ft_sb(deque_a, deque_b);
+	ft_sa(stack_a, stack_b, 0);
+	ft_sb(stack_a, stack_b, 0);
+	ft_printf("ss\n");
 }
 
-int ft_pa(t_deque *deque_a, t_deque *deque_b)
+void ft_pa(t_stack *stack_a, t_stack *stack_b)
 {
 	t_lst_ps *temp;
-	if (!deque_b->head)
-		return (0);
-		if (deque_a->head == NULL)
+	if (!stack_b->head)
+		return ;
+		if (stack_a->head == NULL)
 		{
-			temp = deque_b->head;
-			deque_a->head = temp;
-			deque_b->head = deque_b->head->next;
-			deque_b->head->prev = NULL;
-			deque_a->head->prev = NULL;
-			deque_a->head->next = NULL;
+			temp = stack_b->head;
+			stack_a->head = temp;
+			stack_b->head = stack_b->head->next;
+			stack_b->head->prev = NULL;
+			stack_a->head->prev = NULL;
+			stack_a->head->next = NULL;
 		} else
 		{
-			temp = deque_a->head;
-			deque_a->head = deque_b->head;
-			deque_b->head = deque_b->head->next;
-			if (deque_b->head)
-				deque_b->head->prev = NULL;
-			deque_a->head->prev = NULL;
-			deque_a->head->next = temp;
-			deque_a->head->next->prev = deque_a->head;
+			temp = stack_a->head;
+			stack_a->head = stack_b->head;
+			stack_b->head = stack_b->head->next;
+			if (stack_b->head)
+				stack_b->head->prev = NULL;
+			stack_a->head->prev = NULL;
+			stack_a->head->next = temp;
+			stack_a->head->next->prev = stack_a->head;
 		}
-	return (1);
+		ft_printf("pa\n");
+	return ;
 }
 
-int ft_pb(t_deque *deque_a, t_deque *deque_b)
+void ft_pb(t_stack *stack_a, t_stack *stack_b)
 {
 	t_lst_ps *temp;
-	if (!deque_a->head)
-		return (0);
-		if (deque_b->head == NULL)
+	if (!stack_a->head)
+		return ;
+		if (stack_b->head == NULL)
 		{
-			temp = deque_a->head;
-			deque_b->head = temp;
-			deque_a->head = deque_a->head->next;
-			deque_a->head->prev = NULL;
-			deque_b->head->prev = NULL;
-			deque_b->head->next = NULL;
+			temp = stack_a->head;
+			stack_b->head = temp;
+			stack_a->head = stack_a->head->next;
+			stack_a->head->prev = NULL;
+			stack_b->head->prev = NULL;
+			stack_b->head->next = NULL;
 		} else
 		{
-			temp = deque_b->head;
-			deque_b->head = deque_a->head;
-			deque_a->head = deque_a->head->next;
-			if (deque_a->head)
-				deque_a->head->prev = NULL;
-			deque_b->head->prev = NULL;
-			deque_b->head->next = temp;
-			deque_b->head->next->prev = deque_b->head;
+			temp = stack_b->head;
+			stack_b->head = stack_a->head;
+			stack_a->head = stack_a->head->next;
+			if (stack_a->head)
+				stack_a->head->prev = NULL;
+			stack_b->head->prev = NULL;
+			stack_b->head->next = temp;
+			stack_b->head->next->prev = stack_b->head;
 		}
-	return (1);
+		ft_printf("pb\n");
+	return ;
 }
 
-int ft_ra(t_deque *deque_a, t_deque *deque_b)
+void ft_ra(t_stack *stack_a, t_stack *stack_b, int print)
 {
 	t_lst_ps *temp;
 
-	if (!(deque_a->head && deque_a->head->next))
-		return (0);
-	temp = deque_a->head;
-	deque_a->head = deque_a->head->next;
-	deque_a->head->prev = NULL;
+	if (!(stack_a->head && stack_a->head->next))
+		return ;
+	temp = stack_a->head;
+	stack_a->head = stack_a->head->next;
+	stack_a->head->prev = NULL;
 	temp->next = NULL;
-	ft_lstadd_back_double(&deque_a->head, temp, deque_a);
-	return (1);
+	ft_lstadd_back_double(&stack_a->head, temp, stack_a);
+	if (print)
+		ft_printf("ra\n");
+	return ;
 }
 
-int ft_rb(t_deque *deque_a, t_deque *deque_b)
+void ft_rb(t_stack *stack_a, t_stack *stack_b, int print)
 {
 	t_lst_ps *temp;
 
-	if (!(deque_b->head && deque_b->head->next))
-		return (0);
-	temp = deque_b->head;
-	deque_b->head = deque_b->head->next;
-	deque_b->head->prev = NULL;
+	if (!(stack_b->head && stack_b->head->next))
+		return ;
+	temp = stack_b->head;
+	stack_b->head = stack_b->head->next;
+	stack_b->head->prev = NULL;
 	temp->next = NULL;
-	ft_lstadd_back_double(&deque_b->head, temp, deque_b);
-	return (1);
+	ft_lstadd_back_double(&stack_b->head, temp, stack_b);
+	if (print)
+		ft_printf("ra\n");
+	return ;
 }
 
-int ft_rr(t_deque *deque_a, t_deque *deque_b)
+void ft_rr(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_ra(deque_a, deque_b);
-	ft_rb(deque_a, deque_b);
+	ft_ra(stack_a, stack_b, 0);
+	ft_rb(stack_a, stack_b, 0);
 }
 
-int ft_rra(t_deque *deque_a, t_deque *deque_b)
+void ft_rra(t_stack *stack_a, t_stack *stack_b, int print)
 {
 	t_lst_ps *temp;
 
-	deque_a->last = ft_lstlast_double(deque_a->head);
-	if (!(deque_a->head && deque_a->head->next))
-		return (0);
-	temp = deque_a->last;
-	deque_a->last = deque_a->last->prev;
-	deque_a->last->next = NULL;
+	stack_a->last = ft_lstlast_double(stack_a->head);
+	if (!(stack_a->head && stack_a->head->next))
+		return ;
+	temp = stack_a->last;
+	stack_a->last = stack_a->last->prev;
+	stack_a->last->next = NULL;
 	// temp->prev = NULL;
-	ft_add_lstentry_first(deque_a, temp);
-	return (1);
+	ft_add_lstentry_first(stack_a, temp);
+	if (print)
+		ft_printf("rra\n");
+	return ;
 }
 
-int ft_rrb(t_deque *deque_a, t_deque *deque_b)
+void ft_rrb(t_stack *stack_a, t_stack *stack_b, int print)
 {
 	t_lst_ps *temp;
 
-	if (!(deque_b->head && deque_b->head->next))
-		return (0);
-	temp = deque_b->last;
-	deque_b->last = deque_b->last->prev;
-	deque_b->last->next = NULL;
-	temp->prev = NULL;
-	ft_add_lstentry_first(deque_b, temp);
-	return (1);
+	if (!(stack_b->head && stack_b->head->next))
+		return ;
+	temp = stack_b->last;
+	stack_b->last = stack_b->last->prev;
+	stack_b->last->next = NULL;
+	// temp->prev = NULL;
+	ft_add_lstentry_first(stack_b, temp);
+	if (print)
+		ft_printf("rrb\n");
+	return ;
 }
 
-int ft_rrr(t_deque *deque_a, t_deque *deque_b)
+void ft_rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_rra(deque_a, deque_b);
-	ft_rrb(deque_a, deque_b);
+	ft_rra(stack_a, stack_b, 0);
+	ft_rrb(stack_a, stack_b, 0);
+	ft_printf("rrr\n");
 }

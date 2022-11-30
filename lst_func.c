@@ -26,46 +26,46 @@ t_lst_ps	*ft_lstnew_double(int	content)
 	return (entry);
 }
 
-void	ft_lstadd_back_double(t_lst_ps **lst, t_lst_ps *new, t_deque *deque)
+void	ft_lstadd_back_double(t_lst_ps **lst, t_lst_ps *new, t_stack *stack)
 {
 	t_lst_ps	*prevlast;
 
-	if (deque->head == NULL)
+	if (stack->head == NULL)
 	{
 		*lst = new;
-		deque->head = new;
-		deque->last = new;
+		stack->head = new;
+		stack->last = new;
 	}
 	else if (*lst)
 	{
 		prevlast = ft_lstlast_double(*lst);
 		prevlast->next = new;
 		new->prev = prevlast;
-		deque->last = new;
+		stack->last = new;
 	}
 }
 
-void ft_add_lstentry_first(t_deque *deque, t_lst_ps *new)
+void ft_add_lstentry_first(t_stack *stack, t_lst_ps *new)
 {
-	if (deque->head == NULL)
+	if (stack->head == NULL)
 	{
-		deque->head = new;
-		deque->last = new;
+		stack->head = new;
+		stack->last = new;
 	}
 	else
 	{
-		deque->head->prev = new;
-		new->next = deque->head;
-		deque->head = new;
+		stack->head->prev = new;
+		new->next = stack->head;
+		stack->head = new;
 	}
 }
 
-void	free_lst_ps(t_deque *deque)
+void	free_lst_ps(t_stack *stack)
 {
 	t_lst_ps *current;
 	t_lst_ps *next;
 
-	current = deque->head;
+	current = stack->head;
 	while(current)
 	{
 		next = current->next;
@@ -87,4 +87,17 @@ int	ft_contains_space(char *str)
 			i++;
 	}
 	return (0);
+}
+
+int	lstsize(t_lst_ps *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
