@@ -6,7 +6,7 @@
 /*   By: jrainpre <jrainpre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:50:50 by jrainpre          #+#    #+#             */
-/*   Updated: 2022/10/10 13:00:07 by jrainpre         ###   ########.fr       */
+/*   Updated: 2022/12/01 10:40:17 by jrainpre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_atoi(const char *nptr)
 		if (nb * sign > 2147483647)
 			return (-1);
 		if (nb * sign < -2147483648)
-			return (0);
+			return (-1);
 		i++;
 	}
 	return (nb * sign);
